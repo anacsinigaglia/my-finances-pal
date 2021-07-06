@@ -14,7 +14,7 @@ export const Content = styled.div`
   justify-content: space-between;
 
   p {
-    color: #ffffff;
+    color: #fff;
     font-size: 2rem;
     display: inline;
     padding: 0 1.5rem;
@@ -22,7 +22,7 @@ export const Content = styled.div`
 
   button {
     font-size: 1rem;
-    color: #ffffff;
+    color: #fff;
     background: var(--blue-light);
     border: 0;
     padding: 0 2rem;
