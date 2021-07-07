@@ -1,10 +1,11 @@
 import { Container } from './styles';
-import { Summary } from '../Summary';
+import { Card, TransactionTable } from '../../components';
 
 export function Dashboard() {
   return (
     <Container>
-      <Summary />
+      <Card />
+      <TransactionTable />
     </Container>
   );
 }
