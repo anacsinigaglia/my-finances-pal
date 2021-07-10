@@ -52,4 +52,28 @@ export const GlobalStyle = createGlobalStyle`
         opacity: 0.6;
         cursor: not-allowed;
     }
+
+    .react-modal-overlay {
+        background: rgba(0, 0, 0, 0.5);
+
+        position: fixed; //ocupa a tela toda e não recebe influência do scroll
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+
+    .react-modal-content {
+        background: var(--background);
+
+        width: 100%;
+        max-width: 576px; //se mais de 576, para; se menos, deixará no tamanho da tela (width 100%)
+        padding: 3rem; //48px for desktop
+        position: relative; //so the close button won't be displayed outside the Modal
+        border-radius: 0.25rem;
+    }
 `;
