@@ -1,13 +1,13 @@
-import { createContext, useEffect, useState } from 'react';
-import { api } from './services/api';
+import { createContext, useContext, useEffect, useState } from 'react';
+import { api } from '../services/api';
 import {
   Transaction,
   TransactionInput,
   TransactionsContextData,
   TransactionsProviderProps,
-} from './types';
+} from '../types';
 
-export const TransactionsContext = createContext<TransactionsContextData>(
+const TransactionsContext = createContext<TransactionsContextData>(
   {} as TransactionsContextData //np with that, 'cause we replace this on value={} below in the return
 );
 
@@ -32,4 +32,8 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
       {children}
     </TransactionsContext.Provider>
   );
+}
+
+export function useTransactions() {
+  return useContext(TransactionsContext);
 }
