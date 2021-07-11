@@ -1,10 +1,13 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, useContext } from 'react';
 import Modal from 'react-modal';
+import { TransactionsContext } from '../../TransactionsContext';
+import { api } from '../../services/api';
+
 import closeImg from '../../assets/vector.svg';
 import incomeImg from '../../assets/entradas.svg';
 import outcomeImg from '../../assets/saidas.svg';
+
 import { Container, RadioBox, TransactionTypeContainer } from './styles';
-import { api } from '../../services/api';
 
 Modal.setAppElement('#root'); //acessibilidade
 
@@ -17,6 +20,8 @@ export function NewTransactionModal({
   isOpen,
   onRequestClose,
 }: NewTransactionModalProps) {
+  const transactions = useContext(TransactionsContext);
+
   const [title, setTitle] = useState('');
   const [value, setValue] = useState(0);
   const [category, setCategory] = useState('');
