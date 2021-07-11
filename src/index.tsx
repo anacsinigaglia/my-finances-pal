@@ -1,21 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createServer } from 'miragejs';
+import { createServer, Model } from 'miragejs';
 import { App } from './App';
 
 createServer({
+  models: {
+    transaction: Model,
+  },
+
   routes() {
-    this.namespace = 'api'; //api = word that miragejs will respond to
-    this.get('/transactions', () => [
-      {
-        id: 1,
-        title: 'Transaction 1',
-        amount: 400,
-        type: 'deposit',
-        category: 'Food',
-        createdAt: new Date(),
-      },
-    ]);
+    this.namespace = 'api'; //api = word that miragejs will respond to in the routes
+    this.get('/transactions', () => this.schema.all('transaction'));
+
+    this.post('/transactions', (schema, req) => {
+      const data = JSON.parse(req.requestBody);
+      return schema.create('transaction', data); //(model name, dados)
+    });
   },
 });
 
