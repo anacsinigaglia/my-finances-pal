@@ -53,7 +53,7 @@ export const GlobalStyle = createGlobalStyle`
         cursor: not-allowed;
     }
 
-    .react-modal-overlay {
+    .react-modal-overlay { //overlay = fundo por detrás do modal
         background: rgba(0, 0, 0, 0.5);
 
         position: fixed; //ocupa a tela toda e não recebe influência do scroll
@@ -75,5 +75,18 @@ export const GlobalStyle = createGlobalStyle`
         padding: 3rem; //48px for desktop
         position: relative; //so the close button won't be displayed outside the Modal
         border-radius: 0.25rem;
+    }
+
+    .react-modal-close {
+        position: absolute;
+        right: 1.5rem;
+        top: 1.5rem;
+        border: 0; //vem por padrão, removo
+        background: transparent; //vem por padrão, removo
+
+        transition: filter 0.2;
+        &:hover {
+            filter: brightness(0.8);
+        }
     }
 `;
